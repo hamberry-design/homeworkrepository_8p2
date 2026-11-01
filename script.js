@@ -59,32 +59,11 @@ document.getElementById("avgatks").textContent = averageatk;
 // a type and re-filter the displayed roster live, without reloading the page.
 
 
-// const monlist = document.getElementById("monlist");
-//
-//
-// function filteredpokemon() {
-//
-//     const selectedtype = monlist.value;
-//
-//     const filteredmon = pokemon.filter(pokemon => {
-//         return selectedtype === "all" || pokemon.type === selectedtype;
-//     });
-//
-//     const displaymon = filteredmon.map (pokemon => {
-//         return `<li> ${pokemon.name} (${pokemon.type}) - ${pokemon.maxHp} HP </li>`;
-//     }).join("");
-//
-//     document.getElementById("monfilter").innerHTML = displaymon;
-//
-// }
-//
-// monlist.addEventListener("change", filteredpokemon)
-//
-// filteredpokemon();
-
 const monlist = document.getElementById("monlist");
 
-monlist.addEventListener("change", (event) => {
+
+function filteredpokemon() {
+
     const selectedtype = monlist.value;
 
     const filteredmon = pokemon.filter(pokemon => {
@@ -97,10 +76,13 @@ monlist.addEventListener("change", (event) => {
 
     document.getElementById("monfilter").innerHTML = displaymon;
 
+}
 
-});
+monlist.addEventListener("change", filteredpokemon)
 
-monlist.dispatchEvent(new Event("change"));
+filteredpokemon();
+
+
 
 
 
